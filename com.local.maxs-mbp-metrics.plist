@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.local.maxs-mbp-metrics</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/max/Dropbox/Computers/Maxs_MBP/venv/bin/python</string>
+        <string>/Users/max/Dropbox/Computers/Maxs_MBP/metrics_service.py</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/max/Dropbox/Computers/Maxs_MBP</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- Don't relaunch faster than once every 30s if it crashes -->
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+
+    <!-- Be a polite background process: low CPU/IO priority -->
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>LowPriorityIO</key>
+    <true/>
+    <key>Nice</key>
+    <integer>5</integer>
+
+    <!-- Make sure /usr/local/bin (homebrew) is in PATH so osx-cpu-temp resolves -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/max/Dropbox/Computers/Maxs_MBP/logs/stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/max/Dropbox/Computers/Maxs_MBP/logs/stderr.log</string>
+</dict>
+</plist>
